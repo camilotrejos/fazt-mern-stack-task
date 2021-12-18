@@ -1,18 +1,20 @@
-module.exports = {
+var path = require('path');
 
-    entry: "./src/app/index.js",
+module.exports = {
+    entry: './src/app/index.js',
     output: {
-        path: __dirname + "/src/public",
-        filename: "bundle.js"
+        path: path.resolve(__dirname, './src/public'),
+        filename: 'bundle.js'
     },
 
-    module: {
+    module:{
         rules: [
             {
-                use: "babel-loader",
+                use: 'babel-loader',
                 test: /\.js$/,
-                exclude: /node_modules/
+                exclude: path.resolve(__dirname, './node_modules')
             }
         ]
-    }
+    },
+
 }
